@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilha Estática</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Sistema de Pilha Estática</h1>
+<div>
+    <input type="number" id="valorPilha" placeholder="Valor para empilhar">
+    <button onclick="pushValue()" class="btnEmpilhar">Empilhar</button>
+    <button onclick="popValue()" class="btnDesempilhar">Desempilhar</button>
+    <button id="btnVisualizar"  class="btnEstadoAtual">Ver estado atual da Pilha</button>
+</div>
+
+<p id="resultado"></p>
+
+<div id="pilha">
+    <!-- Estado da pilha será exibido aqui -->
+</div>
+
+<!-- Balão de notificação -->
+<div id="notificacao" class="hidden"></div>
+
+<script src="/scripts.js"></script>
+</body>
+</html>
