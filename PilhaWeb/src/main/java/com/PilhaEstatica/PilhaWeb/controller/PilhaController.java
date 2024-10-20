@@ -23,6 +23,11 @@ public class PilhaController {
         return pilha.visualizarPilha();
     }
 
+    @GetMapping("/tamanho")
+    public int tamanho() {
+        return pilha.tamanho();
+    }
+
 
     @GetMapping("/pop")
     public String pop() {

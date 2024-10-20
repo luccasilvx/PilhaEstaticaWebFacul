@@ -44,4 +44,9 @@ public class Pilha {
         }
         return estadoAtual;
     }
+
+    public int tamanho() {
+        return top + 1;
+    }
+
 }

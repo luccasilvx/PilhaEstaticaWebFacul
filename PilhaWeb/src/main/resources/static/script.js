@@ -9,7 +9,10 @@ async function pushValue() {
     const result = await response.text();
 
     document.getElementById("resultado").innerText = result;
-    showNotification("Valor empilhado com sucesso!");
+
+    if (result.includes("empilhado")) {
+        alert("Valor " + value + " empilhado com sucesso!");
+    }
 }
 
 async function popValue() {
@@ -17,30 +20,30 @@ async function popValue() {
     const result = await response.text();
 
     document.getElementById("resultado").innerText = result;
-    showNotification("Valor desempilhado com sucesso!");
+
+    if (result.includes("removido")) {
+        alert(result);
+    }
 }
 
-document.getElementById("btnVisualizar").addEventListener("click", function() {
-    fetch("/pilha/visualizar")
-        .then(response => response.json())
-        .then(data => {
-            const pilhaDiv = document.getElementById("pilha");
-            if (data.length > 0) {
-                pilhaDiv.innerHTML = "Estado atual da pilha: " + data.join(", ");
-            } else {
-                pilhaDiv.innerHTML = "A pilha está vazia.";
-            }
-        })
-        .catch(error => console.error("Erro ao buscar estado da pilha:", error));
+
+document.getElementById("btnVisualizar").addEventListener("click", async function() {
+    try {
+        const response = await fetch("/pilha/visualizar");
+        const data = await response.json();
+        const pilhaDiv = document.getElementById("pilha");
+
+        const tamanhoResponse = await fetch("/pilha/tamanho");
+        const tamanho = await tamanhoResponse.text();
+
+        if (data.length > 0) {
+            pilhaDiv.innerHTML = `Estado atual da pilha: ${data.join(", ")} <br> Tamanho: ${tamanho}`;
+        } else {
+            pilhaDiv.innerHTML = "A pilha está vazia.";
+        }
+    } catch (error) {
+        console.error("Erro ao buscar estado da pilha:", error);
+    }
 });
 
-function showNotification(message) {
-    const notificacao = document.getElementById("notificacao");
-    notificacao.innerText = message;
-    notificacao.classList.add("show");
 
-    setTimeout(() => {
-        notificacao.classList.remove("show");
-        notificacao.classList.add("hidden");
-    }, 3000);
-}
