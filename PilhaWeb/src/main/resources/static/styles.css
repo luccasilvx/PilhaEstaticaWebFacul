@@ -33,3 +33,7 @@ div {
     cursor: pointer;
 }
 
+.fundo-image{
+    background-image: url(/PilhaWeb/src/main/resources/templates/montanhas.jpg);
+    position: relative;
+}
