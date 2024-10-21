@@ -34,6 +34,47 @@ div {
 }
 
 .fundo-image{
-    background-image: url(/PilhaWeb/src/main/resources/templates/montanhas.jpg);
+    background-image: url(/assets/montanhas.jpg);
     position: relative;
+    height: 100vh;
+    border-radius: 8px;
+}
+
+.title-estoque{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8rem;
+    color: #fff;
+}
+
+.resultado{
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+
+#resultado {
+    color: #fff;
+    font-weight: bold;
+}
+
+
+.box-input{
+    padding: 2rem 0 3rem 0;
+}
+
+.input-value{
+    width: 17rem;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 3px solid #fff;
+}
+
+.pilha{
+    color: #fff;
+}
+
+.button-remover, .button-peek, .button-estadoPìlha{
+    padding-bottom: 3rem;
 }

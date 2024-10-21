@@ -52,4 +52,24 @@ public class PilhaController {
     public boolean isFull() {
         return pilha.isFull();
     }
+
+    @DeleteMapping("/remover/{index}")
+    public String removerPorIndice(@PathVariable int index) {
+        try {
+            if (index >= 0 && index <= pilha.tamanho() - 1) {
+                int[] stack = pilha.visualizarPilha();
+                int removido = stack[index];
+                for (int i = index; i < pilha.tamanho() - 1; i++) {
+                    stack[i] = stack[i + 1];
+                }
+                pilha.pop(); // Reduz o tamanho da pilha após o deslocamento
+                return "Elemento no índice " + index + " removido: " + removido;
+            } else {
+                return "Índice inválido!";
+            }
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+    }
+
 }

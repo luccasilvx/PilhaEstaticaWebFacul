@@ -3,30 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilha Estática</title>
+    <title>Sistema de Estoque</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <div class="fundo-image">
+
     <div class="container-info">
-        <article class="title-estoue">
+
+        <article class="title-estoque">
             <h1>Sistema de Estoque de Caixas</h1>
         </article>
+
+        <p id="resultado" class="resultado">  </p>
+
         <div class="box-input">
-            <input type="number" id="valorPilha" placeholder="Valor para empilhar" class="input-value">
+            <input type="number" id="valorPilha" placeholder="Valor da caixa a ser empilhada :" class="input-value">
         </div>
 
-        <section class="buttons">
+        <section class="button-empilhar">
             <button onclick="pushValue()" class="btnEmpilhar">Empilhar</button>
-            <button onclick="popValue()" class="btnDesempilhar">Desempilhar</button>
-            <button id="btnVisualizar"  class="btnEstadoAtual">Ver estado atual da Pilha</button>
         </section>
 
-        <p id="resultado">  </p>
+        <div class="box-input">
+            <input type="number" id="valorIndice" placeholder="Índice da caixa a ser removida :" class="input-value">
+        </div>
 
-        <div id="pilha">    </div>
+        <section class="button-remover">
+            <button onclick="removerPorIndice()" class="btnRemover">Remover por Índice</button>
+        </section>
+
+
+        <section class="button-peek">
+            <button onclick="peekValue()" class="btnPeek">Visualizar Último Item</button>
+        </section>
+
+        <section class="button-estadoPìlha">
+            <button id="btnVisualizar"  class="btnEstadoAtual">Ver estado atual da Pilha</button>
+            <div id="pilha" class="pilha">    </div>
+        </section>
+
+
+
     </div>
-</div>        
+</div>
 
 
 <script src="/script.js"></script>
